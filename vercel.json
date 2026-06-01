@@ -1,16 +1,6 @@
 {
-  "builds": [
-    { "src": "api/chat.js", "use": "@vercel/node" },
-    {
-      "src": "**/*.{html,png,jpg,css,js,svg,ico,json}",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    { "src": "/api/chat", "dest": "/api/chat" },
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/$1" }
-  ],
+  "outputDirectory": ".",
+  "cleanUrls": true,
   "functions": {
     "api/chat.js": {
       "maxDuration": 30
