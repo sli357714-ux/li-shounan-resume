@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>李首男 — 个人简历</title>
   <style>
-    /* ============================================================
-       李首男 · 个人简历
-       ============================================================ */
     :root {
       --ink:      #1c1c1c;
       --ink-alt:  #4a4a4a;
@@ -27,9 +24,10 @@
 
     body {
       font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", "Songti SC", "PingFang SC", "Microsoft YaHei", serif;
+      font-size: 17px;
       background: var(--bg-page);
       color: var(--ink);
-      line-height: 1.78;
+      line-height: 1.82;
       letter-spacing: 0.015em;
       -webkit-text-size-adjust: 100%;
       -webkit-font-smoothing: antialiased;
@@ -38,7 +36,7 @@
 
     /* ====== 纸张容器 ====== */
     .page {
-      max-width: 780px;
+      max-width: 800px;
       margin: 40px auto;
       background: var(--bg-card);
       box-shadow: var(--shadow);
@@ -53,7 +51,7 @@
       background: linear-gradient(90deg, transparent 0%, var(--accent-dim) 20%, var(--accent) 50%, var(--accent-dim) 80%, transparent 100%);
     }
 
-    /* ====== 头部：照片 + 基本信息 ====== */
+    /* ====== 头部 ====== */
     .header {
       display: flex;
       align-items: center;
@@ -77,28 +75,25 @@
       object-fit: cover;
       display: block;
     }
-    .header-info {
-      flex: 1;
-      min-width: 0;
-    }
+    .header-info { flex: 1; min-width: 0; }
     .header-info .name {
-      font-size: 2em;
+      font-size: 2.3em;
       font-weight: 700;
       letter-spacing: 0.14em;
       color: var(--ink);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .header-info .info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5px 28px;
-      font-size: 0.88em;
+      gap: 6px 28px;
+      font-size: 1em;
       color: var(--ink-alt);
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
     .header-info .info-grid .lbl { color: var(--muted); margin-right: 4px; }
 
-    /* ====== AI 问答区（紧接基本信息下方） ====== */
+    /* ====== AI 问答区 ====== */
     .qa-section {
       margin-bottom: 34px;
       padding-bottom: 6px;
@@ -108,8 +103,21 @@
       text-align: center;
       margin-bottom: 16px;
     }
+    .qa-prompt .built-by-headline {
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      margin-bottom: 12px;
+      border: 2px solid var(--accent);
+      display: inline-block;
+      padding: 8px 24px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, var(--accent-light), #fff);
+    }
     .qa-prompt .teaser {
-      font-size: 0.95em;
+      font-size: 1.05em;
       font-weight: 600;
       color: var(--accent);
       letter-spacing: 0.04em;
@@ -117,24 +125,11 @@
       margin-bottom: 4px;
     }
     .qa-prompt .hint {
-      font-size: 0.80em;
+      font-size: 0.9em;
       color: #b0a99f;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
-    .qa-prompt .built-by {
-      margin-top: 10px;
-      font-size: 0.78em;
-      color: var(--accent);
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      letter-spacing: 0.03em;
-      border: 1px solid var(--accent-dim);
-      display: inline-block;
-      padding: 4px 16px;
-      border-radius: 3px;
-      background: var(--accent-light);
-    }
 
-    /* 聊天气泡容器 */
     .chat-box {
       border: 1px solid var(--divider);
       border-radius: var(--radius);
@@ -143,26 +138,23 @@
       box-shadow: 0 1px 6px rgba(0,0,0,0.03);
     }
     .chat-messages {
-      height: 340px;
+      height: 360px;
       overflow-y: auto;
       padding: 20px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+      display: flex; flex-direction: column; gap: 14px;
     }
-    /* 滚动条 */
     .chat-messages::-webkit-scrollbar { width: 5px; }
     .chat-messages::-webkit-scrollbar-track { background: transparent; }
     .chat-messages::-webkit-scrollbar-thumb { background: #d0cbc2; border-radius: 3px; }
 
     .chat-bubble {
       max-width: 82%;
-      padding: 13px 18px;
+      padding: 14px 20px;
       border-radius: 12px;
-      line-height: 1.65;
+      line-height: 1.68;
       word-break: break-word;
       animation: fadeIn 0.28s;
-      font-size: 1.04em;
+      font-size: 1.1em;
       font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
     }
     @keyframes fadeIn {
@@ -185,7 +177,7 @@
     }
     .chat-bubble.typing {
       align-self: flex-start;
-      padding: 16px 24px;
+      padding: 17px 26px;
       background: #fff;
       border: 1px solid #e8e3da;
       border-bottom-left-radius: 3px;
@@ -212,8 +204,8 @@
     .chat-input-row input {
       flex: 1;
       border: none;
-      padding: 14px 18px;
-      font-size: 1em;
+      padding: 16px 20px;
+      font-size: 1.05em;
       outline: none;
       background: transparent;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -224,8 +216,8 @@
       border: none;
       background: var(--accent);
       color: #fff;
-      padding: 0 28px;
-      font-size: 0.93em;
+      padding: 0 32px;
+      font-size: 1em;
       cursor: pointer;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
       white-space: nowrap;
@@ -243,11 +235,11 @@
     }
     .section:last-of-type { margin-bottom: 0; }
     .section-title {
-      font-size: 1.02em;
+      font-size: 1.15em;
       font-weight: 700;
       letter-spacing: 0.08em;
       color: var(--accent);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--divider);
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -255,7 +247,7 @@
 
     /* ====== 经历条目 ====== */
     .exp-item {
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       page-break-inside: avoid;
     }
     .exp-item:last-child { margin-bottom: 0; }
@@ -269,99 +261,82 @@
     }
     .exp-company {
       font-weight: 700;
-      font-size: 0.98em;
+      font-size: 1.08em;
       color: var(--ink);
       letter-spacing: 0.03em;
     }
     .exp-date {
-      font-size: 0.80em;
+      font-size: 0.9em;
       color: var(--muted);
       white-space: nowrap;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
     .exp-role {
-      font-size: 0.86em;
+      font-size: 0.95em;
       color: var(--accent);
       margin-bottom: 6px;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
     .exp-label {
-      font-size: 0.82em;
+      font-size: 0.9em;
       font-weight: 700;
       color: var(--ink-alt);
-      margin: 8px 0 3px;
+      margin: 10px 0 4px;
       letter-spacing: 0.04em;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
       text-transform: uppercase;
     }
     .exp-desc {
-      font-size: 0.90em;
+      font-size: 1em;
       color: var(--ink-alt);
-      line-height: 1.72;
-    }
-    .exp-reason {
-      font-size: 0.80em;
-      color: #b0a99f;
-      margin-top: 5px;
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
     }
 
     /* ====== 校园经历 ====== */
-    .campus-block {
-      margin-bottom: 14px;
-    }
+    .campus-block { margin-bottom: 16px; }
     .campus-block:last-child { margin-bottom: 0; }
     .campus-block h4 {
-      font-size: 0.93em;
+      font-size: 1.05em;
       font-weight: 700;
       color: var(--ink);
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
     .campus-block .meta {
-      font-size: 0.84em;
+      font-size: 0.93em;
       color: var(--muted);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
-    .campus-block p {
-      font-size: 0.90em;
-      color: var(--ink-alt);
-    }
+    .campus-block p { font-size: 1em; color: var(--ink-alt); }
     .honor-tag {
       display: inline-block;
       background: var(--accent-light);
       border: 1px solid var(--accent-dim);
       color: var(--accent);
-      padding: 2px 12px;
-      font-size: 0.83em;
+      padding: 3px 14px;
+      font-size: 0.92em;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      margin: 3px 6px 3px 0;
+      margin: 4px 6px 4px 0;
     }
 
     /* ====== 课程 ====== */
     .course-list {
-      font-size: 0.90em;
+      font-size: 1em;
       color: var(--ink-alt);
-      line-height: 2.0;
+      line-height: 2.1;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
     .course-list .pipe { color: #d0cbc2; margin: 0 8px; }
 
     /* ====== 技能证书 ====== */
-    .skill-block {
-      margin-bottom: 14px;
-    }
+    .skill-block { margin-bottom: 16px; }
     .skill-block h4 {
-      font-size: 0.93em;
+      font-size: 1.05em;
       font-weight: 700;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       color: var(--ink);
     }
-    .skill-block p {
-      font-size: 0.89em;
-      color: var(--ink-alt);
-      margin-bottom: 2px;
-    }
+    .skill-block p { font-size: 1em; color: var(--ink-alt); margin-bottom: 3px; }
     .cert-gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -376,14 +351,10 @@
       transition: box-shadow 0.25s;
     }
     .cert-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-    .cert-card img {
-      width: 100%;
-      display: block;
-      cursor: pointer;
-    }
+    .cert-card img { width: 100%; display: block; cursor: pointer; }
     .cert-label {
-      padding: 10px 14px;
-      font-size: 0.80em;
+      padding: 12px 14px;
+      font-size: 0.9em;
       color: var(--muted);
       text-align: center;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -393,9 +364,9 @@
 
     /* ====== 爱好 ====== */
     .hobby-item {
-      padding: 10px 0;
+      padding: 12px 0;
       border-bottom: 1px dotted var(--divider);
-      font-size: 0.90em;
+      font-size: 1em;
       color: var(--ink-alt);
     }
     .hobby-item:last-child { border-bottom: none; }
@@ -407,7 +378,7 @@
     /* ====== 页脚 ====== */
     .page-footer {
       text-align: center;
-      font-size: 0.76em;
+      font-size: 0.85em;
       color: #c5bfb3;
       margin-top: 36px;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -416,11 +387,8 @@
 
     /* ====== 打印 ====== */
     @media print {
-      body { background: #fff; }
-      .page {
-        box-shadow: none; margin: 0;
-        padding: 24px 36px; max-width: none;
-      }
+      body { background: #fff; font-size: 15px; }
+      .page { box-shadow: none; margin: 0; padding: 24px 36px; max-width: none; }
       .page::before { display: none; }
       .section { border-left: none; padding-left: 0; }
       .qa-section { display: none; }
@@ -429,29 +397,21 @@
 
     /* ====== 手机端 ====== */
     @media (max-width: 640px) {
-      .page {
-        margin: 0;
-        padding: 28px 16px 36px;
-        box-shadow: none;
-      }
+      body { font-size: 16px; }
+      .page { margin: 0; padding: 28px 16px 36px; box-shadow: none; }
       .page::before { left: 16px; right: 16px; }
-      .header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 18px;
-      }
+      .header { flex-direction: column; align-items: center; text-align: center; gap: 18px; }
       .header-info .info-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 3px 16px;
-        font-size: 0.83em;
+        gap: 4px 16px;
+        font-size: 0.93em;
       }
       .section { padding-left: 12px; }
       .exp-head { flex-direction: column; gap: 0; }
       .cert-gallery { grid-template-columns: 1fr; }
       .chat-messages { height: 300px; padding: 14px 16px; }
-      .chat-bubble { max-width: 92%; font-size: 1em; }
-      .chat-input-row input { font-size: 0.95em; }
+      .chat-bubble { max-width: 92%; font-size: 1.05em; }
+      .chat-input-row input { font-size: 1em; padding: 14px 16px; }
       .section { margin-bottom: 22px; }
     }
   </style>
@@ -460,7 +420,7 @@
 
 <div class="page">
 
-  <!-- ==================== 头部：照片 + 基本信息 ==================== -->
+  <!-- ==================== 头部 ==================== -->
   <div class="header">
     <div class="header-photo">
       <img src="photo.png" alt="李首男">
@@ -480,12 +440,12 @@
     </div>
   </div>
 
-  <!-- ==================== AI 问答区（紧接基本信息） ==================== -->
+  <!-- ==================== AI 问答区 ==================== -->
   <div class="qa-section">
     <div class="qa-prompt">
+      <div class="built-by-headline">🛠 本 AI 问答助手由李首男基于 百炼平台 · DeepSeek V4 · RAG · Agent · Claude Code 独立搭建</div>
       <div class="teaser">与其翻看简历，不如直接问我 — 关于李首男的任何问题，AI 助手替你解答</div>
       <div class="hint">⚡ AI 回答需要一些时间，请耐心等待，感谢理解</div>
-      <div class="built-by">🛠 本问答助手由李首男基于 百炼平台 · DeepSeek · RAG · Agent · Claude Code 独立搭建</div>
     </div>
 
     <div class="chat-box">
@@ -507,47 +467,20 @@
     </div>
   </div>
 
-  <!-- ==================== 实习经历 ==================== -->
+  <!-- ==================== 实习经历（按时间先后） ==================== -->
   <div class="section">
     <div class="section-title">实习经历</div>
 
     <div class="exp-item">
       <div class="exp-head">
-        <span class="exp-company">沈阳天童美语</span>
-        <span class="exp-date">2025.08 — 2025.12</span>
+        <span class="exp-company">久屹机械制造有限公司</span>
+        <span class="exp-date">2023.07 — 2023.10</span>
       </div>
-      <div class="exp-role">营销推广与私域运营（ToC）</div>
+      <div class="exp-role">市场拓展与技术协调（实习生）</div>
       <div class="exp-label">工作职责</div>
-      <div class="exp-desc">线下精准引流：负责沈阳核心商圈及大型幼儿园等高客群密集场所的地推拓客，通过精准人群画像分析，日均高效触达目标家长群体，实现公域流量向私域的转化。<br>社群与私域运营：负责潜在客户群体的长期维护，通过高价值内容提升社群活跃度与信任度；每周六独立/协助组织线下家长学生联动活动，提升品牌粘性。</div>
+      <div class="exp-desc">客户需求诊断：负责向工业级客户讲解、演示公司机械产品，针对不同客户的生产业务场景进行定制化、差异化的产品推荐。<br>跨部门协同：充当市场与生产技术端的纽带，精准翻译并反馈客户的非标定制需求给生产研发部门，跟踪协调技术方案的落地。</div>
       <div class="exp-label">收获</div>
-      <div class="exp-desc">沉淀了扎实的一线面销技巧与抗压能力，深刻理解 ToC 消费心理学；掌握了从"线下地推 → 社群沉淀 → 活动裂变 → 深度促活"的全链路私域运营闭环思维。</div>
-      <div class="exp-reason">— 离职原因：完成学业</div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-head">
-        <span class="exp-company">博宇金属贸易公司</span>
-        <span class="exp-date">2024.10 — 2025.06</span>
-      </div>
-      <div class="exp-role">ToB 大客户销售（期货 / 跟单）</div>
-      <div class="exp-label">工作职责</div>
-      <div class="exp-desc">多渠道线索挖掘：通过行业展会、专业论坛、宏观新闻及产业研报，深度挖掘潜在企业级客户，利用电话销售进行精准触达与初步需求建档。<br>商务谈判与交易执行：负责 ToB 工业品销售、大宗商品期货交易与全流程跟单；精细化对接客户需求，协调供应链、物流团队。<br>客户关系管理（CRM）：定期进行客户电访与回访，维护长期合作关系。</div>
-      <div class="exp-label">收获</div>
-      <div class="exp-desc">培养了敏锐的行业宏观经济与期货市场分析能力，能够基于专业数据为客户提供顾问式销售方案；掌握了 ToB 大客户开发流转、商务合同谈判、风险控制及全周期跟单管理的硬核技能。</div>
-      <div class="exp-reason">— 离职原因：身体原因，无法适应长期省外出差与酒席应酬</div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-head">
-        <span class="exp-company">锦书教育</span>
-        <span class="exp-date">2026.01 — 2026.02</span>
-      </div>
-      <div class="exp-role">在线教育销售与直播运营</div>
-      <div class="exp-label">工作职责</div>
-      <div class="exp-desc">直播转化与授课：面向已购低价/体验课学员进行线上直播授课，通过高效的课堂互动与价值锚定，激发学员兴趣，建立讲师信任度。<br>电销触达与二次转化：配合直播节点，通过电话对家长进行深度回访与需求诊断，制定针对性续费方案，促成高价正价课的加购与二次转化。</div>
-      <div class="exp-label">收获</div>
-      <div class="exp-desc">跑通了在线教育"直播带货 / 高转化授课 + 电话精准社群催单"的复合型销售模式；提升了线上公众表达、临场应变能力以及精细化用户生命周期管理（LTV）的意识。</div>
-      <div class="exp-reason">— 离职原因：合同短期工</div>
+      <div class="exp-desc">了解了工业制造企业的运作架构，切实掌握了企业内部跨部门（销售—生产—技术）交接、协同与复盘流程；提升了将客户痛点转化为产品技术语言的跨界沟通与项目协调能力。</div>
     </div>
 
     <div class="exp-item">
@@ -560,51 +493,68 @@
       <div class="exp-desc">多店跨区联动运营：深度参与辽宁省内多家直营及加盟门店的日常经营管理，具备多店并发运营的全局视角。<br>进销存与商品管理：运用 ERP 系统实时动态监控商品数据，精细化统计临期损耗与畅销品类，执行高效的跨店转货调拨，优化库存结构。<br>营销活动策划执行：参与规划并落地零售门店的日常促销、会员专属礼品管理以及重大节假日主题活动，实现门店销售额（GMV）与会员复购率稳步增长。</div>
       <div class="exp-label">收获</div>
       <div class="exp-desc">积累了极强的新零售实体店运营经验、面销技巧及敏锐的数据看板分析能力；深刻理解了大型连锁零售业态的商品全生命周期管理、物流转配与供应链跨部门协同机制。</div>
-      <div class="exp-reason">— 离职原因：非正式实习</div>
     </div>
 
     <div class="exp-item">
       <div class="exp-head">
-        <span class="exp-company">久屹机械制造有限公司</span>
-        <span class="exp-date">2023.07 — 2023.10</span>
+        <span class="exp-company">博宇金属贸易公司</span>
+        <span class="exp-date">2024.10 — 2025.06</span>
       </div>
-      <div class="exp-role">市场拓展与技术协调（实习生）</div>
+      <div class="exp-role">ToB 大客户销售（期货 / 跟单）</div>
       <div class="exp-label">工作职责</div>
-      <div class="exp-desc">客户需求诊断：负责向工业级客户讲解、演示公司机械产品，针对不同客户的生产业务场景进行定制化、差异化的产品推荐。<br>跨部门协同：充当市场与生产技术端的纽带，精准翻译并反馈客户的非标定制需求给生产研发部门，跟踪协调技术方案的落地。</div>
+      <div class="exp-desc">多渠道线索挖掘：通过行业展会、专业论坛、宏观新闻及产业研报，深度挖掘潜在企业级客户，利用电话销售进行精准触达与初步需求建档。<br>商务谈判与交易执行：负责 ToB 工业品销售、大宗商品期货交易与全流程跟单；精细化对接客户需求，协调供应链、物流团队。<br>客户关系管理（CRM）：定期进行客户电访与回访，维护长期合作关系。</div>
       <div class="exp-label">收获</div>
-      <div class="exp-desc">了解了工业制造企业的运作架构，切实掌握了企业内部跨部门（销售—生产—技术）交接、协同与复盘流程；提升了将客户痛点转化为产品技术语言的跨界沟通与项目协调能力。</div>
-      <div class="exp-reason">— 离职原因：实习期结束</div>
+      <div class="exp-desc">培养了敏锐的行业宏观经济与期货市场分析能力，能够基于专业数据为客户提供顾问式销售方案；掌握了 ToB 大客户开发流转、商务合同谈判、风险控制及全周期跟单管理的硬核技能。</div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-head">
+        <span class="exp-company">沈阳天童美语</span>
+        <span class="exp-date">2025.08 — 2025.12</span>
+      </div>
+      <div class="exp-role">营销推广与私域运营（ToC）</div>
+      <div class="exp-label">工作职责</div>
+      <div class="exp-desc">线下精准引流：负责沈阳核心商圈及大型幼儿园等高客群密集场所的地推拓客，通过精准人群画像分析，日均高效触达目标家长群体，实现公域流量向私域的转化。<br>社群与私域运营：负责潜在客户群体的长期维护，通过高价值内容提升社群活跃度与信任度；每周六独立/协助组织线下家长学生联动活动，提升品牌粘性。</div>
+      <div class="exp-label">收获</div>
+      <div class="exp-desc">沉淀了扎实的一线面销技巧与抗压能力，深刻理解 ToC 消费心理学；掌握了从"线下地推 → 社群沉淀 → 活动裂变 → 深度促活"的全链路私域运营闭环思维。</div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-head">
+        <span class="exp-company">锦书教育</span>
+        <span class="exp-date">2026.01 — 2026.02</span>
+      </div>
+      <div class="exp-role">在线教育销售与直播运营</div>
+      <div class="exp-label">工作职责</div>
+      <div class="exp-desc">直播转化与授课：面向已购低价/体验课学员进行线上直播授课，通过高效的课堂互动与价值锚定，激发学员兴趣，建立讲师信任度。<br>电销触达与二次转化：配合直播节点，通过电话对家长进行深度回访与需求诊断，制定针对性续费方案，促成高价正价课的加购与二次转化。</div>
+      <div class="exp-label">收获</div>
+      <div class="exp-desc">跑通了在线教育"直播带货 / 高转化授课 + 电话精准社群催单"的复合型销售模式；提升了线上公众表达、临场应变能力以及精细化用户生命周期管理（LTV）的意识。</div>
     </div>
   </div>
 
   <!-- ==================== 校园经历 ==================== -->
   <div class="section">
     <div class="section-title">校园经历</div>
-
     <div class="campus-block">
       <h4>沈阳师范大学 · 市场营销（本科）</h4>
       <div class="meta">班级团支部书记 &nbsp;·&nbsp; 校团委第二课堂部部长 &nbsp;·&nbsp; 2020.09 — 2026.06</div>
       <p><span class="honor-tag">三次校级奖学金（累计 1,400 元）</span></p>
     </div>
-
     <div class="campus-block">
       <h4>信息化项目开发与运营</h4>
       <div class="meta">第二课堂部部长任期</div>
       <p>核心主导：响应学校关于开设第二课堂的号召，由本人牵头并协调学校团委老师与技术团队，从 0 到 1 共同开发并上线了"沈师青课堂"APP。深入参与该系统二课考核标准的编纂与顶层设计，将 APP 内的学分考核与学生毕业资质进行深度挂钩，实现了全校学生的高频次活跃与刚性覆盖。</p>
     </div>
-
     <div class="campus-block">
       <h4>基层组织与公益策划</h4>
       <div class="meta">团支部书记任期</div>
       <p>作为班级核心骨干，具备极强的号召力。在校期间统筹并组织了多次大型志愿者活动、爱心献血以及疫情期间的校园志愿服务，累计服务时长超百小时，展现了极强的公共服务意识。</p>
     </div>
-
     <div class="campus-block">
       <h4>多元社会实践</h4>
       <div class="meta">大一至大三</div>
       <p>秉承"实践是检验真理的唯一标准"，在校期间勇于走出舒适圈，先后尝试了摆摊、后厨、搬家、家教、店员、外卖、进厂等 10 余种跨界兼职工作。积累了极其深厚的底层社会经验，掌握了针对不同阶层与背景人群的跨沟通技巧，培养了极强的抗压能力与同理心。</p>
     </div>
-
     <div class="campus-block">
       <h4>知行合一的深度实践</h4>
       <div class="meta">大四至大六</div>
@@ -623,18 +573,15 @@
   <!-- ==================== 技能证书 ==================== -->
   <div class="section">
     <div class="section-title">专业技能与证书</div>
-
     <div class="skill-block">
       <h4>前沿 AI 技能</h4>
       <p>阿里云 ACP 大模型高级工程师认证 — 深入理解大语言模型应用落地、Prompt 工程及大模型赋能业务流程</p>
       <p>微软认证 Azure AI Fundamentals（AI-900）— 具备国际前沿的云计算及人工智能基础解决方案认知</p>
     </div>
-
     <div class="skill-block">
       <h4>综合素养</h4>
       <p>快速跨行业学习能力 · 商业数据看板分析能力 · 跨部门复杂项目协同能力</p>
     </div>
-
     <div class="cert-gallery">
       <div class="cert-card">
         <img src="acp.png" alt="阿里云 ACP 大模型高级工程师认证" loading="lazy" onclick="openImg(this.src)">
@@ -669,7 +616,6 @@
 </div><!-- /page -->
 
 <script>
-/* ====== 图片点击放大 ====== */
 function openImg(src) {
   const overlay = document.createElement('div');
   overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:pointer;';
@@ -682,7 +628,6 @@ function openImg(src) {
   document.body.appendChild(overlay);
 }
 
-/* ====== 聊天逻辑 ====== */
 (function() {
   const chatBody  = document.getElementById('chatBody');
   const chatInput = document.getElementById('chatInput');
@@ -692,14 +637,11 @@ function openImg(src) {
   async function sendMessage() {
     const message = chatInput.value.trim();
     if (!message) return;
-
     chatInput.disabled = true;
     chatSend.disabled = true;
     appendMessage('user', message);
     chatInput.value = '';
-
     const typing = showTyping();
-
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
@@ -708,7 +650,6 @@ function openImg(src) {
       });
       const data = await res.json();
       typing.remove();
-
       if (data.error) {
         appendMessage('bot', '抱歉，出了点问题：' + data.error);
       } else {
@@ -721,7 +662,6 @@ function openImg(src) {
       typing.remove();
       appendMessage('bot', '网络连接失败，请稍后重试 😥');
     }
-
     chatInput.disabled = false;
     chatSend.disabled = false;
     chatInput.focus();
