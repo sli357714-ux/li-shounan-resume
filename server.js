@@ -118,6 +118,8 @@ const MIME = {
   ".json": "application/json",
   ".png": "image/png",
   ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".jpg": "image/jpeg",
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon",
   ".mp3": "audio/mpeg",
