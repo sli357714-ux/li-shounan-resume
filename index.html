@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -19,9 +19,7 @@
       --shadow:   0 2px 28px rgba(0,0,0,0.06);
       --radius:   8px;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", "Songti SC", "PingFang SC", "Microsoft YaHei", serif;
       font-size: 17px;
@@ -31,10 +29,9 @@
       letter-spacing: 0.015em;
       -webkit-text-size-adjust: 100%;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
 
-    /* ====== 纸张容器 ====== */
+    /* ====== 纸张 ====== */
     .page {
       max-width: 800px;
       margin: 40px auto;
@@ -51,108 +48,107 @@
       background: linear-gradient(90deg, transparent 0%, var(--accent-dim) 20%, var(--accent) 50%, var(--accent-dim) 80%, transparent 100%);
     }
 
-    /* ====== 头部 ====== */
+    /* ====== 头部：照片 + 基本信息 ====== */
     .header {
       display: flex;
       align-items: center;
-      gap: 32px;
-      padding-bottom: 28px;
-      margin-bottom: 32px;
+      gap: 28px;
+      padding-bottom: 20px;
+      margin-bottom: 22px;
       border-bottom: 1px solid var(--divider);
     }
     .header-photo {
       flex-shrink: 0;
-      width: 100px;
-      height: 130px;
+      width: 90px; height: 118px;
       border-radius: 4px;
       overflow: hidden;
       border: 1px solid var(--divider);
-      background: #f8f5f0;
     }
-    .header-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .header-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .header-info { flex: 1; min-width: 0; }
     .header-info .name {
-      font-size: 2.3em;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--ink);
-      margin-bottom: 12px;
+      font-size: 2.1em; font-weight: 700;
+      letter-spacing: 0.14em; margin-bottom: 8px;
     }
     .header-info .info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px 28px;
-      font-size: 1em;
+      gap: 3px 20px;
+      font-size: 0.93em;
       color: var(--ink-alt);
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
-    .header-info .info-grid .lbl { color: var(--muted); margin-right: 4px; }
+    .header-info .info-grid .lbl { color: var(--muted); margin-right: 2px; }
+
+    /* ====== 紧凑区：课程紧接基本信息 ====== */
+    .compact-section {
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .compact-section .compact-title {
+      font-size: 0.95em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .compact-course {
+      font-size: 0.93em;
+      color: var(--ink-alt);
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+    .compact-course strong {
+      color: var(--ink);
+      font-size: 0.92em;
+      margin-right: 4px;
+    }
+    .compact-course .group { margin-right: 18px; white-space: nowrap; }
 
     /* ====== AI 问答区 ====== */
     .qa-section {
-      margin-bottom: 34px;
+      margin-bottom: 28px;
       padding-bottom: 6px;
       border-bottom: 1px solid var(--divider);
     }
-    .qa-prompt {
-      text-align: center;
-      margin-bottom: 16px;
-    }
+    .qa-prompt { text-align: center; margin-bottom: 14px; }
     .qa-prompt .built-by-headline {
-      font-size: 1.05em;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.05em;
+      font-size: 1.05em; font-weight: 700;
+      color: var(--accent); letter-spacing: 0.05em;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       border: 2px solid var(--accent);
-      display: inline-block;
-      padding: 8px 24px;
-      border-radius: 4px;
+      display: inline-block; padding: 8px 24px; border-radius: 4px;
       background: linear-gradient(135deg, var(--accent-light), #fff);
     }
     .qa-prompt .teaser {
-      font-size: 1.05em;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.04em;
+      font-size: 1.05em; font-weight: 600;
+      color: var(--accent); letter-spacing: 0.04em;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
       margin-bottom: 4px;
     }
     .qa-prompt .hint {
-      font-size: 0.9em;
-      color: #b0a99f;
+      font-size: 0.9em; color: #b0a99f;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
-
     .chat-box {
-      border: 1px solid var(--divider);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--bg-chat);
+      border: 1px solid var(--divider); border-radius: var(--radius);
+      overflow: hidden; background: var(--bg-chat);
       box-shadow: 0 1px 6px rgba(0,0,0,0.03);
     }
     .chat-messages {
-      height: 360px;
-      overflow-y: auto;
+      height: 360px; overflow-y: auto;
       padding: 20px 24px;
       display: flex; flex-direction: column; gap: 14px;
     }
     .chat-messages::-webkit-scrollbar { width: 5px; }
     .chat-messages::-webkit-scrollbar-track { background: transparent; }
     .chat-messages::-webkit-scrollbar-thumb { background: #d0cbc2; border-radius: 3px; }
-
     .chat-bubble {
-      max-width: 82%;
-      padding: 14px 20px;
-      border-radius: 12px;
-      line-height: 1.68;
-      word-break: break-word;
+      max-width: 82%; padding: 14px 20px; border-radius: 12px;
+      line-height: 1.68; word-break: break-word;
       animation: fadeIn 0.28s;
       font-size: 1.1em;
       font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
@@ -162,30 +158,24 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     .chat-bubble.bot {
-      align-self: flex-start;
-      background: #fff;
-      border: 1px solid #e8e3da;
-      border-bottom-left-radius: 3px;
+      align-self: flex-start; background: #fff;
+      border: 1px solid #e8e3da; border-bottom-left-radius: 3px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.03);
     }
     .chat-bubble.user {
       align-self: flex-end;
       background: linear-gradient(135deg, var(--accent), #7a5f3e);
-      color: #fff;
-      border-bottom-right-radius: 3px;
+      color: #fff; border-bottom-right-radius: 3px;
       box-shadow: 0 2px 8px rgba(139,111,78,0.18);
     }
     .chat-bubble.typing {
-      align-self: flex-start;
-      padding: 17px 26px;
-      background: #fff;
-      border: 1px solid #e8e3da;
+      align-self: flex-start; padding: 17px 26px;
+      background: #fff; border: 1px solid #e8e3da;
       border-bottom-left-radius: 3px;
     }
     .typing-dots { display: flex; gap: 5px; }
     .typing-dots span {
-      width: 8px; height: 8px;
-      background: var(--accent-dim);
+      width: 8px; height: 8px; background: var(--accent-dim);
       border-radius: 50%;
       animation: bounce 1.4s infinite ease-in-out;
     }
@@ -195,224 +185,169 @@
       0%, 80%, 100% { transform: translateY(0); }
       40% { transform: translateY(-7px); }
     }
-
-    .chat-input-row {
-      display: flex;
-      border-top: 1px solid var(--divider);
-      background: #fff;
-    }
+    .chat-input-row { display: flex; border-top: 1px solid var(--divider); background: #fff; }
     .chat-input-row input {
-      flex: 1;
-      border: none;
-      padding: 16px 20px;
-      font-size: 1.05em;
-      outline: none;
-      background: transparent;
+      flex: 1; border: none; padding: 16px 20px;
+      font-size: 1.05em; outline: none; background: transparent;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      letter-spacing: 0.02em;
     }
     .chat-input-row input::placeholder { color: #c8c1b6; }
     .chat-input-row button {
-      border: none;
-      background: var(--accent);
-      color: #fff;
-      padding: 0 32px;
-      font-size: 1em;
-      cursor: pointer;
+      border: none; background: var(--accent); color: #fff;
+      padding: 0 32px; font-size: 1em; cursor: pointer;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      white-space: nowrap;
-      letter-spacing: 0.06em;
+      white-space: nowrap; letter-spacing: 0.06em;
       transition: background 0.2s;
     }
     .chat-input-row button:hover { background: #7a5f3e; }
     .chat-input-row button:disabled { background: #c5bfb3; cursor: not-allowed; }
 
     /* ====== 区块通用 ====== */
-    .section {
-      margin-bottom: 30px;
-      padding-left: 18px;
-      border-left: 1px solid var(--divider);
-    }
+    .section { margin-bottom: 28px; }
     .section:last-of-type { margin-bottom: 0; }
     .section-title {
-      font-size: 1.15em;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      margin-bottom: 16px;
-      padding-bottom: 8px;
+      font-size: 1.1em; font-weight: 700;
+      letter-spacing: 0.08em; color: var(--accent);
+      margin-bottom: 14px; padding-bottom: 8px;
       border-bottom: 1px solid var(--divider);
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
 
-    /* ====== 经历条目 ====== */
-    .exp-item {
-      margin-bottom: 24px;
-      page-break-inside: avoid;
-    }
-    .exp-item:last-child { margin-bottom: 0; }
-    .exp-head {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 3px;
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-    }
-    .exp-company {
-      font-weight: 700;
-      font-size: 1.08em;
-      color: var(--ink);
-      letter-spacing: 0.03em;
-    }
-    .exp-date {
-      font-size: 0.9em;
-      color: var(--muted);
-      white-space: nowrap;
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-    }
-    .exp-role {
-      font-size: 0.95em;
-      color: var(--accent);
-      margin-bottom: 6px;
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-    }
-    .exp-label {
-      font-size: 0.9em;
-      font-weight: 700;
-      color: var(--ink-alt);
-      margin: 10px 0 4px;
-      letter-spacing: 0.04em;
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      text-transform: uppercase;
-    }
-    .exp-desc {
-      font-size: 1em;
-      color: var(--ink-alt);
-      line-height: 1.75;
-    }
-
     /* ====== 校园经历 ====== */
-    .campus-block { margin-bottom: 16px; }
-    .campus-block:last-child { margin-bottom: 0; }
-    .campus-block h4 {
-      font-size: 1.05em;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 3px;
-    }
-    .campus-block .meta {
-      font-size: 0.93em;
-      color: var(--muted);
-      margin-bottom: 5px;
+    .campus-overview {
+      font-size: 0.95em; color: var(--ink-alt); margin-bottom: 14px;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
-    .campus-block p { font-size: 1em; color: var(--ink-alt); }
+    .campus-item { margin-bottom: 12px; }
+    .campus-item:last-child { margin-bottom: 0; }
+    .campus-item h4 {
+      font-size: 1em; font-weight: 700; color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .campus-item .meta {
+      font-size: 0.88em; color: var(--muted); margin-bottom: 3px;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .campus-item p { font-size: 0.95em; color: var(--ink-alt); }
+    .honor-tags {
+      margin-top: 12px;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
     .honor-tag {
       display: inline-block;
       background: var(--accent-light);
       border: 1px solid var(--accent-dim);
       color: var(--accent);
-      padding: 3px 14px;
-      font-size: 0.92em;
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      margin: 4px 6px 4px 0;
+      padding: 3px 14px; font-size: 0.9em;
+      margin: 3px 8px 3px 0;
     }
 
-    /* ====== 课程 ====== */
-    .course-list {
-      font-size: 1em;
-      color: var(--ink-alt);
-      line-height: 2.1;
+    /* ====== 实习经历 ====== */
+    .exp-item {
+      margin-bottom: 22px;
+      page-break-inside: avoid;
+    }
+    .exp-item:last-child { margin-bottom: 0; }
+    .exp-head {
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: baseline;
+      margin-bottom: 3px;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
     }
-    .course-list .pipe { color: #d0cbc2; margin: 0 8px; }
+    .exp-company {
+      font-weight: 700; font-size: 1.05em; color: var(--ink);
+    }
+    .exp-date {
+      font-size: 0.88em; color: var(--muted); white-space: nowrap;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .exp-role {
+      font-size: 0.93em; color: var(--accent); margin-bottom: 6px;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .exp-label {
+      font-size: 0.88em; font-weight: 700; color: var(--ink-alt);
+      margin: 8px 0 3px;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      text-transform: uppercase;
+    }
+    .exp-desc { font-size: 0.97em; color: var(--ink-alt); line-height: 1.75; }
+    .exp-highlight {
+      font-size: 0.93em; color: var(--accent); margin-top: 4px;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-weight: 600;
+    }
 
     /* ====== 技能证书 ====== */
-    .skill-block { margin-bottom: 16px; }
+    .skill-block { margin-bottom: 14px; }
     .skill-block h4 {
-      font-size: 1.05em;
-      font-weight: 700;
-      margin-bottom: 5px;
-      color: var(--ink);
+      font-size: 1.02em; font-weight: 700;
+      margin-bottom: 4px; color: var(--ink);
     }
-    .skill-block p { font-size: 1em; color: var(--ink-alt); margin-bottom: 3px; }
+    .skill-block p { font-size: 0.97em; color: var(--ink-alt); margin-bottom: 2px; }
+    .skill-block .stat {
+      font-size: 0.9em; color: var(--accent);
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      margin-top: 2px;
+    }
     .cert-gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 16px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 18px; margin-top: 16px;
     }
     .cert-card {
-      border: 1px solid var(--divider);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: #fff;
+      border: 1px solid var(--divider); border-radius: var(--radius);
+      overflow: hidden; background: #fff;
       transition: box-shadow 0.25s;
     }
     .cert-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
     .cert-card img { width: 100%; display: block; cursor: pointer; }
     .cert-label {
-      padding: 12px 14px;
-      font-size: 0.9em;
-      color: var(--muted);
-      text-align: center;
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      border-top: 1px solid var(--divider);
-      background: #fdfcf9;
+      padding: 12px 14px; font-size: 0.88em; color: var(--muted);
+      text-align: center; font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      border-top: 1px solid var(--divider); background: #fdfcf9;
     }
 
     /* ====== 爱好 ====== */
     .hobby-item {
-      padding: 12px 0;
-      border-bottom: 1px dotted var(--divider);
-      font-size: 1em;
-      color: var(--ink-alt);
+      padding: 10px 0; border-bottom: 1px dotted var(--divider);
+      font-size: 0.97em; color: var(--ink-alt);
     }
     .hobby-item:last-child { border-bottom: none; }
-    .hobby-item strong {
-      color: var(--ink);
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-    }
+    .hobby-item strong { color: var(--ink); font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
 
     /* ====== 页脚 ====== */
     .page-footer {
-      text-align: center;
-      font-size: 0.85em;
-      color: #c5bfb3;
-      margin-top: 36px;
+      text-align: center; font-size: 0.85em;
+      color: #c5bfb3; margin-top: 32px;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      letter-spacing: 0.04em;
     }
 
     /* ====== 打印 ====== */
     @media print {
       body { background: #fff; font-size: 15px; }
-      .page { box-shadow: none; margin: 0; padding: 24px 36px; max-width: none; }
+      .page { box-shadow: none; margin: 0; padding: 20px 32px; max-width: none; }
       .page::before { display: none; }
-      .section { border-left: none; padding-left: 0; }
       .qa-section { display: none; }
       .cert-card { box-shadow: none; border: 1px solid #ddd; }
     }
 
-    /* ====== 手机端 ====== */
+    /* ====== 手机 ====== */
     @media (max-width: 640px) {
       body { font-size: 16px; }
-      .page { margin: 0; padding: 28px 16px 36px; box-shadow: none; }
+      .page { margin: 0; padding: 24px 16px 32px; box-shadow: none; }
       .page::before { left: 16px; right: 16px; }
-      .header { flex-direction: column; align-items: center; text-align: center; gap: 18px; }
+      .header { flex-direction: column; align-items: center; text-align: center; gap: 14px; }
       .header-info .info-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 4px 16px;
-        font-size: 0.93em;
+        gap: 2px 12px; font-size: 0.88em;
       }
-      .section { padding-left: 12px; }
+      .compact-course .group { display: block; margin-bottom: 4px; }
       .exp-head { flex-direction: column; gap: 0; }
       .cert-gallery { grid-template-columns: 1fr; }
       .chat-messages { height: 300px; padding: 14px 16px; }
       .chat-bubble { max-width: 92%; font-size: 1.05em; }
       .chat-input-row input { font-size: 1em; padding: 14px 16px; }
-      .section { margin-bottom: 22px; }
+      .section { margin-bottom: 20px; }
     }
   </style>
 </head>
@@ -420,11 +355,9 @@
 
 <div class="page">
 
-  <!-- ==================== 头部 ==================== -->
+  <!-- ========== 头部 ========== -->
   <div class="header">
-    <div class="header-photo">
-      <img src="photo.png" alt="李首男">
-    </div>
+    <div class="header-photo"><img src="photo.png" alt="李首男"></div>
     <div class="header-info">
       <div class="name">李 首 男</div>
       <div class="info-grid">
@@ -440,14 +373,23 @@
     </div>
   </div>
 
-  <!-- ==================== AI 问答区 ==================== -->
+  <!-- ========== 在校学习课程（紧接基本信息，紧凑） ========== -->
+  <div class="compact-section">
+    <div class="compact-title">在校学习课程</div>
+    <div class="compact-course">
+      <span class="group"><strong>管理与经济基础</strong>管理学&nbsp;·&nbsp;微观经济学&nbsp;·&nbsp;宏观经济学&nbsp;·&nbsp;统计学</span>
+      <span class="group"><strong>营销与销售核心</strong>市场营销学&nbsp;·&nbsp;销售管理&nbsp;·&nbsp;广告学&nbsp;·&nbsp;消费者行为学</span>
+      <span class="group"><strong>运营与供应链</strong>物流管理&nbsp;·&nbsp;会计学基础&nbsp;·&nbsp;财务管理</span>
+    </div>
+  </div>
+
+  <!-- ========== AI 问答区 ========== -->
   <div class="qa-section">
     <div class="qa-prompt">
       <div class="built-by-headline">🛠 本 AI 问答助手由李首男基于 百炼平台 · DeepSeek V4 · RAG · Agent · Claude Code 独立搭建</div>
       <div class="teaser">与其翻看简历，不如直接问我 — 关于李首男的任何问题，AI 助手替你解答</div>
       <div class="hint">⚡ AI 回答需要一些时间，请耐心等待，感谢理解</div>
     </div>
-
     <div class="chat-box">
       <div class="chat-messages" id="chatBody">
         <div class="chat-bubble bot">
@@ -467,7 +409,38 @@
     </div>
   </div>
 
-  <!-- ==================== 实习经历（按时间先后） ==================== -->
+  <!-- ========== 校园经历 ========== -->
+  <div class="section">
+    <div class="section-title">校园经历</div>
+    <div class="campus-overview">
+      沈阳师范大学 · 市场营销（本科） · 2020.09 — 2026.06
+    </div>
+
+    <div class="campus-item">
+      <h4>班级团支部书记</h4>
+      <div class="meta">2020.10 — 2024.06</div>
+      <p>统筹并组织了多次大型志愿者活动、爱心献血以及疫情期间的校园志愿服务，累计服务时长超百小时，展现了极强的号召力与公共服务意识。</p>
+    </div>
+
+    <div class="campus-item">
+      <h4>团委组织部部员</h4>
+      <div class="meta">2020.09 — 2022.06（大一至大二）</div>
+      <p>参与校团委组织部的日常事务，负责团员发展、团籍管理及团内活动组织工作，培养了严谨的组织协调能力。</p>
+    </div>
+
+    <div class="campus-item">
+      <h4>团委第二课堂部部长</h4>
+      <div class="meta">2022.06 — 2023.06（大三）</div>
+      <p>核心主导：由本人牵头并协调学校团委老师与技术团队，从 0 到 1 共同开发并上线了"沈师青课堂"APP。深入参与该系统二课考核标准的编纂与顶层设计，将 APP 内的学分考核与学生毕业资质进行深度挂钩，实现了全校学生的高频次活跃与刚性覆盖。</p>
+    </div>
+
+    <div class="honor-tags">
+      <span class="honor-tag">🏅 三次院级奖学金</span>
+      <span class="honor-tag">⭐ 一次校优秀团员</span>
+    </div>
+  </div>
+
+  <!-- ========== 实习经历 ========== -->
   <div class="section">
     <div class="section-title">实习经历</div>
 
@@ -505,6 +478,7 @@
       <div class="exp-desc">多渠道线索挖掘：通过行业展会、专业论坛、宏观新闻及产业研报，深度挖掘潜在企业级客户，利用电话销售进行精准触达与初步需求建档。<br>商务谈判与交易执行：负责 ToB 工业品销售、大宗商品期货交易与全流程跟单；精细化对接客户需求，协调供应链、物流团队。<br>客户关系管理（CRM）：定期进行客户电访与回访，维护长期合作关系。</div>
       <div class="exp-label">收获</div>
       <div class="exp-desc">培养了敏锐的行业宏观经济与期货市场分析能力，能够基于专业数据为客户提供顾问式销售方案；掌握了 ToB 大客户开发流转、商务合同谈判、风险控制及全周期跟单管理的硬核技能。</div>
+      <div class="exp-highlight">📊 月平均处理业务额超十万元</div>
     </div>
 
     <div class="exp-item">
@@ -517,6 +491,7 @@
       <div class="exp-desc">线下精准引流：负责沈阳核心商圈及大型幼儿园等高客群密集场所的地推拓客，通过精准人群画像分析，日均高效触达目标家长群体，实现公域流量向私域的转化。<br>社群与私域运营：负责潜在客户群体的长期维护，通过高价值内容提升社群活跃度与信任度；每周六独立/协助组织线下家长学生联动活动，提升品牌粘性。</div>
       <div class="exp-label">收获</div>
       <div class="exp-desc">沉淀了扎实的一线面销技巧与抗压能力，深刻理解 ToC 消费心理学；掌握了从"线下地推 → 社群沉淀 → 活动裂变 → 深度促活"的全链路私域运营闭环思维。</div>
+      <div class="exp-highlight">💰 成功转化学员，实现盈利四万余元</div>
     </div>
 
     <div class="exp-item">
@@ -529,62 +504,17 @@
       <div class="exp-desc">直播转化与授课：面向已购低价/体验课学员进行线上直播授课，通过高效的课堂互动与价值锚定，激发学员兴趣，建立讲师信任度。<br>电销触达与二次转化：配合直播节点，通过电话对家长进行深度回访与需求诊断，制定针对性续费方案，促成高价正价课的加购与二次转化。</div>
       <div class="exp-label">收获</div>
       <div class="exp-desc">跑通了在线教育"直播带货 / 高转化授课 + 电话精准社群催单"的复合型销售模式；提升了线上公众表达、临场应变能力以及精细化用户生命周期管理（LTV）的意识。</div>
+      <div class="exp-highlight">👥 累计覆盖学员 107 人</div>
     </div>
   </div>
 
-  <!-- ==================== 校园经历 ==================== -->
-  <div class="section">
-    <div class="section-title">校园经历</div>
-    <div class="campus-block">
-      <h4>班级团支部书记、校团委第二课堂部部长</h4>
-      <div class="meta">沈阳师范大学 · 市场营销（本科） · 2020.09 — 2026.06</div>
-      <p><span class="honor-tag">三次院级奖学金</span></p>
-    </div>
-    <div class="campus-block">
-      <h4>第二课堂部部长任期</h4>
-      <div class="meta">信息化项目开发与运营</div>
-      <p>核心主导：响应学校关于开设第二课堂的号召，由本人牵头并协调学校团委老师与技术团队，从 0 到 1 共同开发并上线了"沈师青课堂"APP。深入参与该系统二课考核标准的编纂与顶层设计，将 APP 内的学分考核与学生毕业资质进行深度挂钩，实现了全校学生的高频次活跃与刚性覆盖。</p>
-    </div>
-    <div class="campus-block">
-      <h4>团支部书记任期</h4>
-      <div class="meta">基层组织与公益策划</div>
-      <p>作为班级核心骨干，具备极强的号召力。在校期间统筹并组织了多次大型志愿者活动、爱心献血以及疫情期间的校园志愿服务，累计服务时长超百小时，展现了极强的公共服务意识。</p>
-    </div>
-    <div class="campus-block">
-      <h4>大一至大三</h4>
-      <div class="meta">多元社会实践</div>
-      <p>秉承"实践是检验真理的唯一标准"，在校期间勇于走出舒适圈，先后尝试了摆摊、后厨、搬家、家教、店员、外卖、进厂等 10 余种跨界兼职工作。积累了极其深厚的底层社会经验，掌握了针对不同阶层与背景人群的跨沟通技巧，培养了极强的抗压能力与同理心。</p>
-    </div>
-    <div class="campus-block">
-      <h4>大四至大六</h4>
-      <div class="meta">知行合一的深度实践</div>
-      <p>在大四于实体企业完成深度实习后，深感校园理论知识需与商业前沿高频碰撞。为此，后续选择主导进行长达两年的"GAP 式"高强度社会实习，主动将市场营销理论在 ToB / ToC 多条商业赛道中进行全面内化。</p>
-    </div>
-  </div>
-
-  <!-- ==================== 在校学习课程 ==================== -->
-  <div class="section">
-    <div class="section-title">在校学习课程</div>
-    <div class="skill-block">
-      <h4>管理与经济基础</h4>
-      <p>管理学 · 微观经济学 · 宏观经济学 · 统计学</p>
-    </div>
-    <div class="skill-block">
-      <h4>营销与销售核心</h4>
-      <p>市场营销学 · 销售管理 · 广告学 · 消费者行为学</p>
-    </div>
-    <div class="skill-block">
-      <h4>运营与供应链</h4>
-      <p>物流管理 · 会计学基础 · 财务管理</p>
-    </div>
-  </div>
-
-  <!-- ==================== 技能证书 ==================== -->
+  <!-- ========== 专业技能与证书 ========== -->
   <div class="section">
     <div class="section-title">专业技能与证书</div>
     <div class="skill-block">
       <h4>前沿 AI 技能</h4>
       <p>阿里云 ACP 大模型高级工程师认证 — 深入理解大语言模型应用落地、Prompt 工程及大模型赋能业务流程</p>
+      <p class="stat">📊 全国持有此认证者不足五万人</p>
       <p>微软认证 Azure AI Fundamentals（AI-900）— 具备国际前沿的云计算及人工智能基础解决方案认知</p>
     </div>
     <div class="skill-block">
@@ -594,7 +524,7 @@
     <div class="cert-gallery">
       <div class="cert-card">
         <img src="acp.png" alt="阿里云 ACP 大模型高级工程师认证" loading="lazy" onclick="openImg(this.src)">
-        <div class="cert-label">阿里云 ACP 大模型高级工程师认证</div>
+        <div class="cert-label">阿里云 ACP 大模型高级工程师认证（全国不足五万人）</div>
       </div>
       <div class="cert-card">
         <img src="ai900.png" alt="Microsoft AI-900 认证" loading="lazy" onclick="openImg(this.src)">
@@ -603,7 +533,7 @@
     </div>
   </div>
 
-  <!-- ==================== 个人特点与爱好 ==================== -->
+  <!-- ========== 个人特点与爱好 ========== -->
   <div class="section">
     <div class="section-title">个人特点与爱好</div>
     <div class="hobby-item">
@@ -624,9 +554,9 @@
 
 </div><!-- /page -->
 
-<!-- 欢迎语音：页面加载后自动播放 -->
 <audio id="welcomeAudio" src="welcome.mp3" preload="auto"></audio>
 <script>
+/* ====== 欢迎语音 ====== */
 (function() {
   var audio = document.getElementById("welcomeAudio");
   var played = false;
@@ -637,21 +567,15 @@
     audio.play().then(function() {}).catch(function() { played = false; });
   }
 
-  // 音频就绪即播
   audio.addEventListener("canplaythrough", tryPlay);
-
-  // load 后延迟兜底
   window.addEventListener("load", function() {
     setTimeout(tryPlay, 200);
     setTimeout(function() { if (!played) tryPlay(); }, 700);
   });
-
-  // 用户任意交互（鼠标动、触摸、滚动、点击、按键）立刻播
   ["mousemove","touchstart","scroll","click","keydown"].forEach(function(evt) {
     document.addEventListener(evt, tryPlay, { once: true });
   });
 
-  // 小喇叭重听
   var btn = document.createElement("button");
   btn.innerHTML = "🔔";
   btn.title = "重新播放欢迎语音";
@@ -668,78 +592,79 @@
 </script>
 
 <script>
-/* ====== 图片点击放大 ====== */
+/* ====== 图片放大 ====== */
 function openImg(src) {
-  const overlay = document.createElement('div');
-  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:pointer;';
-  const img = document.createElement('img');
-  img.src = src;
-  img.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:4px;box-shadow:0 12px 48px rgba(0,0,0,0.3);';
-  overlay.appendChild(img);
-  overlay.addEventListener('click', function(){ overlay.remove(); });
-  document.addEventListener('keydown', function esc(e){ if(e.key==='Escape'){ overlay.remove(); document.removeEventListener('keydown',esc); } });
-  document.body.appendChild(overlay);
+  var o = document.createElement("div");
+  o.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:pointer;";
+  var i = document.createElement("img");
+  i.src = src;
+  i.style.cssText = "max-width:90vw;max-height:90vh;border-radius:4px;box-shadow:0 12px 48px rgba(0,0,0,0.3);";
+  o.appendChild(i);
+  o.addEventListener("click", function(){ o.remove(); });
+  document.addEventListener("keydown", function esc(e){ if(e.key=="Escape"){ o.remove(); document.removeEventListener("keydown",esc); } });
+  document.body.appendChild(o);
 }
 
+/* ====== 聊天 ====== */
 (function() {
-  const chatBody  = document.getElementById('chatBody');
-  const chatInput = document.getElementById('chatInput');
-  const chatSend  = document.getElementById('chatSend');
-  let chatHistory = [];
+  var chatBody = document.getElementById("chatBody");
+  var chatInput = document.getElementById("chatInput");
+  var chatSend = document.getElementById("chatSend");
+  var chatHistory = [];
 
   async function sendMessage() {
-    const message = chatInput.value.trim();
-    if (!message) return;
+    var msg = chatInput.value.trim();
+    if (!msg) return;
     chatInput.disabled = true;
     chatSend.disabled = true;
-    appendMessage('user', message);
-    chatInput.value = '';
-    const typing = showTyping();
+    append("user", msg);
+    chatInput.value = "";
+    var typing = showTyping();
     try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, history: chatHistory }),
+      var res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: msg, history: chatHistory })
       });
-      const data = await res.json();
+      var data = await res.json();
       typing.remove();
       if (data.error) {
-        appendMessage('bot', '抱歉，出了点问题：' + data.error);
+        append("bot", "抱歉：" + data.error);
       } else {
-        appendMessage('bot', data.reply);
-        chatHistory.push({ role: 'user', content: message });
-        chatHistory.push({ role: 'assistant', content: data.reply });
+        append("bot", data.reply);
+        chatHistory.push({ role: "user", content: msg });
+        chatHistory.push({ role: "assistant", content: data.reply });
         if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
       }
-    } catch (err) {
+    } catch(e) {
       typing.remove();
-      appendMessage('bot', '网络连接失败，请稍后重试 😥');
+      append("bot", "网络连接失败，请稍后重试 😥");
     }
     chatInput.disabled = false;
     chatSend.disabled = false;
     chatInput.focus();
   }
 
-  function appendMessage(role, text) {
-    const div = document.createElement('div');
-    div.className = 'chat-bubble ' + role;
+  function append(role, text) {
+    var div = document.createElement("div");
+    div.className = "chat-bubble " + role;
     div.textContent = text;
     chatBody.appendChild(div);
     chatBody.scrollTop = chatBody.scrollHeight;
   }
 
   function showTyping() {
-    const div = document.createElement('div');
-    div.className = 'chat-bubble typing';
+    var div = document.createElement("div");
+    div.className = "chat-bubble typing";
     div.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
     chatBody.appendChild(div);
     chatBody.scrollTop = chatBody.scrollHeight;
     return div;
   }
 
-  chatSend.addEventListener('click', sendMessage);
-  chatInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  chatSend.addEventListener("click", sendMessage);
+  chatInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
   });
 })();
 </script>
